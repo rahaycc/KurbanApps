@@ -1,24 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>KurbanApp</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="flex">
-
-    {{-- Sidebar --}}
-    <div class="w-64 h-screen bg-green-800 text-white p-4 space-y-4">
-        <h1 class="text-2xl font-bold">KurbanApp</h1>
-        <a href="/" class="block p-2 bg-green-900 rounded">Dashboard</a>
-        <a href="/hewan" class="block p-2 hover:bg-green-700 rounded">Data Hewan</a>
-        <a href="#" class="block p-2 hover:bg-green-700 rounded">Pemeriksaan</a>
-        <a href="#" class="block p-2 hover:bg-green-700 rounded">Laporan</a>
-    </div>
-
-    {{-- Main --}}
-    <div class="flex-1 p-6 bg-gray-50">
-        <h2 class="text-2xl font-bold mb-4">Sistem Informasi Hewan Kurban</h2>
+@extends('layouts.app')
+@section('content')
+<h2 class="text-2xl font-bold mb-4">Sistem Informasi Hewan Kurban</h2>
 
         {{-- Dashboard Card --}}
         <div class="grid grid-cols-3 gap-4 mb-6">
@@ -45,21 +27,26 @@
             <table class="w-full table-auto text-left border">
                 <thead>
                     <tr class="bg-gray-200">
+                        <th>No</th>
                         <th class="p-2">Nama Hewan</th>
                         <th>Jenis</th>
                         <th>Berat</th>
                         <th>Status</th>
-                        <th>Aksi</th>
+                        <!-- <th>Aksi</th> -->
                     </tr>
                 </thead>
                 <tbody>
+                    @php 
+                    $i = 1;
+                    @endphp
                     @foreach($hewans as $hewan)
                         <tr class="border-t">
+                            <td>{{$i++}}</td>
                             <td class="p-2">{{ $hewan->nama }}</td>
                             <td>{{ $hewan->jenis }}</td>
                             <td>{{ $hewan->berat }} kg</td>
                             <td class="{{ $hewan->status == 'Layak' ? 'text-green-600' : 'text-red-600' }}">{{ $hewan->status }}</td>
-                            <td><a href="{{ route('hewan.edit', $hewan->id) }}" class="text-blue-500">Periksa</a></td>
+                            <!-- <td><a href="{{ route('hewan.edit', $hewan->id) }}" class="text-blue-500">Periksa</a></td> -->
                         </tr>
                     @endforeach
                 </tbody>
@@ -98,20 +85,4 @@
             </form>
         </div>
         @endif
-
-        {{-- Laporan --}}
-        <div class="bg-white p-4 rounded shadow">
-            <h3 class="text-xl font-bold mb-2">Laporan</h3>
-            <form>
-                <label>Periode</label>
-                <select class="border p-2 rounded">
-                    <option>April 2024</option>
-                    <option>Mei 2024</option>
-                </select>
-                <button class="bg-green-800 text-white px-4 py-2 rounded ml-2">Tampilkan</button>
-            </form>
-        </div>
-    </div>
-
-</body>
-</html>
+@endsection

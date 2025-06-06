@@ -139,6 +139,16 @@ public function update(Request $request, $id)
     return redirect()->route('hewan.index')->with('success', 'Data berhasil diperbarui.');
 }
 
+public function destroy($id)
+{
+    $hewan = Hewan::findOrFail($id);
+    $hewan->delete();
+
+    return redirect()->route('hewan.index')->with('success', 'Data hewan berhasil dihapus.');
+}
+
+
+    
 
 }
 
