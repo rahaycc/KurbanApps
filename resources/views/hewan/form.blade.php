@@ -59,3 +59,4 @@
 </div>
 
 <button type="submit" class="btn btn-success">Simpan</button>
+<a href="{{ route('dashboard') }}" class="btn btn-secondary">Kembali</a>
