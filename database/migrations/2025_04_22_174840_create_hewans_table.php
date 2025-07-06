@@ -14,15 +14,15 @@ return new class extends Migration
     Schema::create('hewans', function (Blueprint $table) {
         $table->id();
         $table->string('nama');
-        $table->string('jenis');
+        $table->string('jenis_hewan');
+        $table->string('jenis_kelamin');
         $table->integer('berat');
+        $table->integer('umur'); // Tambahkan ke schema
         $table->string('mata');
-        $table->string('hidung');
-        $table->string('mulut');
-        $table->string('tanduk');
         $table->string('kaki');
-        $table->string('pernafasan');
-        $table->string('feses');
+        $table->string('tanduk');
+        $table->string('ekor');
+        $table->string('telinga');
         $table->string('status'); // Layak atau Tidak Layak
         $table->timestamps();
     });

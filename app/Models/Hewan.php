@@ -6,17 +6,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class Hewan extends Model
 {
+    protected $table = 'hewans';
+
     protected $fillable = [
         'nama',
-        'jenis',
+        'jenis_hewan',
+        'jenis_kelamin',
+        'umur',
         'berat',
+        'warna',
+        'poel',
         'mata',
-        'hidung',
-        'mulut',
-        'tanduk',
         'kaki',
-        'pernafasan',
-        'feses',
+        'tanduk',
+        'ekor',
+        'telinga',
         'status',
+        'skor'
     ];
+    
 }
