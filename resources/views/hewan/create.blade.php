@@ -18,6 +18,11 @@
         </div>
 
         <div class="mb-3">
+            <label>Umur</label>
+            <input type="integer" name="umur" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
             <label>Berat (Kg)</label>
             <input type="number" name="berat" class="form-control" required>
         </div>
